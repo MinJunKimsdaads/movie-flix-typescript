@@ -1,0 +1,47 @@
+$netflixBlack: #141414;
+$netflixGray: #ddd;
+
+.navMenu {
+    margin-top: 20px;
+    padding-left: 70px;
+
+    a {
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+    }
+}
+
+.category {
+    font-size: 20px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 60px;
+    text-align: center;
+}
+
+.categoryBtnBox {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
+}
+
+.categoryBtnBox {
+    > div{
+        display: flex;
+        margin-top: 15px;
+        min-width: 30%;
+        padding-left: 50px;
+    }
+}
+
+.seletedGenre{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.genre {
+    cursor: pointer;
+    color: rgba(255,255,255,0.7);
+}

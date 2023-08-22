@@ -1,0 +1,15 @@
+$netflixBlack: #141414;
+$netflixGray: #ddd;
+
+.item {
+    margin-bottom: 40px;
+    margin-right: 37px;
+
+    &:nth-child(5n+0){
+        margin-right: 0;
+    }
+
+    &:hover{
+        filter: brightness(50%);
+    }
+}

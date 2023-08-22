@@ -1,0 +1,349 @@
+$netflixBlack: #141414;
+$netflixGray: #ddd;
+
+.appMountPoint{
+    height: 100vh;
+    
+    > div{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .nmtitleSection{
+        background: $netflixBlack;
+        margin: 0 auto;
+        max-width: 1000px;
+        padding: 25px 5vw;
+        position: relative;
+    }
+
+    .heroContainer{
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        position: relative;
+        width: 100%;
+
+        .heroImageContainer {
+            display: flex;
+            flex: 1 1 auto;
+            flex-direction: row;
+            height: 0;
+            padding-bottom: 55%;
+            z-index: 1;
+        }
+    }
+
+    .infoContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 800px;
+        min-width: 500px;
+        padding: 16px 32px 64px 0;
+        position: relative;
+        width: 35%;
+        z-index: 2;
+
+        &:after{
+            background: linear-gradient(90deg,$netflixBlack 10%,hsla(0,0%,9%,.98) 20%,hsla(0,0%,9%,.97) 25%,hsla(0,0%,9%,.95) 35%,hsla(0,0%,9%,.94) 40%,hsla(0,0%,9%,.92) 45%,hsla(0,0%,9%,.9) 50%,hsla(0,0%,9%,.87) 55%,hsla(0,0%,9%,.82) 60%,hsla(0,0%,9%,.75) 65%,hsla(0,0%,9%,.63) 70%,hsla(0,0%,9%,.45) 75%,hsla(0,0%,9%,.27) 80%,hsla(0,0%,9%,.15) 85%,hsla(0,0%,9%,.08) 90%,hsla(0,0%,9%,.03) 95%,hsla(0,0%,9%,0));
+            bottom: 0;
+            content: "";
+            left: 0;
+            position: absolute;
+            right: -200px;
+            top: 0;
+            z-index: -1;
+        }
+    }
+
+    .detailsContainer {
+        margin: 40px 0 0;
+    }
+    
+    .titleInfo {
+        margin-bottom: 22px;
+    }
+    
+    .titleTitle{
+        color: #fff;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 30px;
+        margin-top: 10px;
+    }
+    
+    .titleInfoMetadataWrapper {
+        margin-top: 16px;
+    }
+    
+    .titleInfoMetadataItem2{
+        color: #a3a3a3;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+    }
+
+    .titleInfoMetadataItem{
+        color: #a3a3a3;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+    }
+
+    .titleInfoMetadataItem2{
+        margin-right: 5px;
+    }
+
+    .infoSpacer {
+        color: #a3a3a3;
+        margin: 0 4px;
+    }
+    
+    .titleInfoSynopsisTalent {
+        align-items: flex-start;
+        display: flex;
+        flex-flow: row wrap;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        max-width: 100%;
+    }
+    
+    .titleInfoTalent{
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        max-width: 100%;
+    }
+
+    .titleInfoSynopsis{
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        max-width: 100%;
+    }
+    
+    .titleDataInfoItemLabel {
+        color: #a3a3a3;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        margin-right: 5px;
+    }
+    
+    .titleInfoSynopsis{
+        padding-top: 16px;
+    
+    }
+    .titleInfoTalent{
+        padding-top: 16px;
+    }
+
+    .heroImageContainer{
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: row;
+        height: 0;
+        padding-bottom: 55%;
+        z-index: 1;
+    }
+    
+    .heroImage {
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        position: absolute;
+        right: -6%;
+        width: 103%;
+    
+        &:after{
+            background: linear-gradient(0deg,$netflixBlack 0,hsla(0,0%,9%,.987) 1.62%,hsla(0,0%,9%,.951) 3.1%,hsla(0,0%,9%,.896) 4.5%,hsla(0,0%,9%,.825) 5.8%,hsla(0,0%,9%,.741) 7.06%,hsla(0,0%,9%,.648) 8.24%,hsla(0,0%,9%,.55) 9.42%,hsla(0,0%,9%,.45) 10.58%,hsla(0,0%,9%,.352) 11.76%,hsla(0,0%,9%,.259) 12.94%,hsla(0,0%,9%,.175) 14.2%,hsla(0,0%,9%,.104) 15.5%,hsla(0,0%,9%,.049) 16.9%,hsla(0,0%,9%,.013) 18.38%,hsla(0,0%,9%,0) 20%);
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            width: 100%;
+        }
+    }
+}
+
+// .appMountPoint > div {
+//     position: relative;
+//     top: 50%;
+//     transform: translateY(-50%);
+// }
+
+// .nmtitleSection{
+//     background: #181818;
+//     margin: 0 auto;
+//     max-width: 1000px;
+//     padding: 25px 5vw;
+//     position: relative;
+// }
+
+// .heroContainer{
+//     display: flex;
+//     flex-direction: row;
+//     margin: 0 auto;
+//     position: relative;
+//     width: 100%;
+// }
+
+// .infoContainer {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     max-width: 800px;
+//     min-width: 500px;
+//     padding: 16px 32px 64px 0;
+//     position: relative;
+//     width: 35%;
+//     z-index: 2;
+// }
+
+// .infoContainer:after {
+//     background: linear-gradient(90deg,#181818 10%,hsla(0,0%,9%,.98) 20%,hsla(0,0%,9%,.97) 25%,hsla(0,0%,9%,.95) 35%,hsla(0,0%,9%,.94) 40%,hsla(0,0%,9%,.92) 45%,hsla(0,0%,9%,.9) 50%,hsla(0,0%,9%,.87) 55%,hsla(0,0%,9%,.82) 60%,hsla(0,0%,9%,.75) 65%,hsla(0,0%,9%,.63) 70%,hsla(0,0%,9%,.45) 75%,hsla(0,0%,9%,.27) 80%,hsla(0,0%,9%,.15) 85%,hsla(0,0%,9%,.08) 90%,hsla(0,0%,9%,.03) 95%,hsla(0,0%,9%,0));
+//     bottom: 0;
+//     content: "";
+//     left: 0;
+//     position: absolute;
+//     right: -200px;
+//     top: 0;
+//     z-index: -1;
+// }
+
+// .heroImageContainer {
+//     display: flex;
+//     flex: 1 1 auto;
+//     flex-direction: row;
+//     height: 0;
+//     padding-bottom: 55%;
+//     z-index: 1;
+// }
+
+// .detailsContainer {
+//     margin: 40px 0 0;
+// }
+
+// .titleInfo {
+//     margin-bottom: 22px;
+// }
+
+// .titleTitle{
+//     color: #fff;
+//     font-size: 24px;
+//     font-weight: 500;
+//     line-height: 30px;
+//     margin-top: 10px;
+// }
+
+// .titleInfoMetadataWrapper {
+//     margin-top: 16px;
+// }
+
+// .titleInfoMetadataItem2{
+//     color: #a3a3a3;
+//     display: inline-block;
+//     font-size: 14px;
+//     font-weight: 400;
+//     line-height: 18px;
+//     &.titleInfoMetadataItem{
+//         margin-right: 5px;
+//     }
+// }
+
+// .titleInfoMetadataItem, .titleInfoMetadataItem2 {
+//     color: #a3a3a3;
+//     display: inline-block;
+//     font-size: 14px;
+//     font-weight: 400;
+//     line-height: 18px;
+// }
+
+// .titleInfoMetadataItem2 {
+//     margin-right: 5px;
+// }
+
+// .infoSpacer {
+//     color: #a3a3a3;
+//     margin: 0 4px;
+// }
+
+// .titleInfoSynopsisTalent {
+//     align-items: flex-start;
+//     display: flex;
+//     flex-flow: row wrap;
+//     flex-direction: column;
+//     justify-content: space-evenly;
+//     margin-bottom: 5px;
+//     margin-top: 5px;
+//     max-width: 100%;
+// }
+
+// .titleInfoTalent, .titleInfoSynopsis {
+//     color: #fff;
+//     font-size: 16px;
+//     font-weight: 400;
+//     line-height: 22px;
+//     max-width: 100%;
+// }
+
+// .titleDataInfoItemLabel {
+//     color: #a3a3a3;
+//     font-size: 16px;
+//     font-weight: 400;
+//     line-height: 22px;
+//     margin-right: 5px;
+// }
+
+// .titleInfoSynopsis{
+//     &.titleInfoTalent{
+//         padding-top: 16px;
+//     }
+
+// }
+
+// .heroImageContainer{
+//     display: flex;
+//     flex: 1 1 auto;
+//     flex-direction: row;
+//     height: 0;
+//     padding-bottom: 55%;
+//     z-index: 1;
+// }
+
+// .heroImage {
+//     background-position: 50%;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     height: 100%;
+//     position: absolute;
+//     right: -6%;
+//     width: 103%;
+
+//     &:after{
+//         background: linear-gradient(0deg,#181818 0,hsla(0,0%,9%,.987) 1.62%,hsla(0,0%,9%,.951) 3.1%,hsla(0,0%,9%,.896) 4.5%,hsla(0,0%,9%,.825) 5.8%,hsla(0,0%,9%,.741) 7.06%,hsla(0,0%,9%,.648) 8.24%,hsla(0,0%,9%,.55) 9.42%,hsla(0,0%,9%,.45) 10.58%,hsla(0,0%,9%,.352) 11.76%,hsla(0,0%,9%,.259) 12.94%,hsla(0,0%,9%,.175) 14.2%,hsla(0,0%,9%,.104) 15.5%,hsla(0,0%,9%,.049) 16.9%,hsla(0,0%,9%,.013) 18.38%,hsla(0,0%,9%,0) 20%);
+//         content: "";
+//         height: 100%;
+//         left: 0;
+//         position: absolute;
+//         width: 100%;
+//     }
+// }
+
+// .heroImage:after {
+//     background: linear-gradient(0deg,#181818 0,hsla(0,0%,9%,.987) 1.62%,hsla(0,0%,9%,.951) 3.1%,hsla(0,0%,9%,.896) 4.5%,hsla(0,0%,9%,.825) 5.8%,hsla(0,0%,9%,.741) 7.06%,hsla(0,0%,9%,.648) 8.24%,hsla(0,0%,9%,.55) 9.42%,hsla(0,0%,9%,.45) 10.58%,hsla(0,0%,9%,.352) 11.76%,hsla(0,0%,9%,.259) 12.94%,hsla(0,0%,9%,.175) 14.2%,hsla(0,0%,9%,.104) 15.5%,hsla(0,0%,9%,.049) 16.9%,hsla(0,0%,9%,.013) 18.38%,hsla(0,0%,9%,0) 20%);
+//     content: "";
+//     height: 100%;
+//     left: 0;
+//     position: absolute;
+//     width: 100%;
+// }

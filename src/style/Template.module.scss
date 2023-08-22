@@ -1,0 +1,33 @@
+$netflixBlack: #141414;
+$netflixGray: #ddd;
+
+.templateBox {
+    width: 1500px;
+    height: 800px;
+    background-color: $netflixBlack;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid $netflixGray;
+}
+
+.navBox {
+    width: 20%;
+    height: 100%;
+    padding-top: 75px;
+}
+
+.mainBox {
+    width: 80%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+}
+
+
+
