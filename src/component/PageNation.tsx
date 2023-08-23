@@ -24,7 +24,7 @@ function PageNation({page, limit, totalPage}){
         dispatch(moveToPrev());
     }
 
-    const num = (e) => {
+    const num = (e:any) => {
         dispatch(moveToPage(Number(e.target.id)));
     }
 
@@ -36,7 +36,7 @@ function PageNation({page, limit, totalPage}){
         <div className={styles.pageBox}>
             {page > 1 ? <span className={styles.pageBtn} onClick={first}>처음</span>:null}
             {page > 1 ? <span className={styles.pageBtn} onClick={prev}>이전</span>:null}
-            {blockArr.filter((e)=>totalPage >= e).map((e)=>{return <span className={page!==e? styles.pageBtn:styles.selectedPageNumber} key={e} id={e} onClick={page!==e? num:null}>{e}</span>})}
+            {blockArr.filter((e)=>totalPage >= e).map((e)=>{return <span className={page!==e? styles.pageBtn:styles.selectedPageNumber} key={e} id={e} onClick={()=>{page!==e? num:null}}>{e}</span>})}
             {totalPage > page ? <span className={styles.pageBtn} onClick={next}>다음</span>:null}
             {totalPage > page ? <span className={styles.pageBtn} onClick={end}>끝</span>:null}
         </div>

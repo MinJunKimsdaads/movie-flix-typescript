@@ -6,11 +6,11 @@ import styles from "../style/Search.module.scss";
 function Search(){
     const dispatch = useDispatch();
     const [keyword, setinKeyword] = useState('');
-    const onChange = (e) => {
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setinKeyword(e.target.value);
     }
 
-    const onKeyPress = (e) => {
+    const onKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if(e.key === 'Enter'){
             insert();
         }

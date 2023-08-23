@@ -1,25 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import '.App.scss';
+import { Route } from 'react-router-dom';
+import ListPage from './page/ListPage';
+import Viewer from './component/Viewer';
+import { Provider } from 'react-redux';
+import { store } from './store/Store';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+          <Route path={`/:menu?`} component={ListPage}></Route>
+          <Route path={`/viewer/:id?`} component={Viewer}></Route>
+      </div>
+    </Provider>
   );
 }
 

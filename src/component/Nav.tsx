@@ -5,8 +5,10 @@ import { genresList } from "../store/Store";
 import { selectGenre, unselectGenre } from "../store/Store";
 import styles from "../style/Nav.module.scss";
 
+import { reducerType } from "../store/Store";
+
 function Nav(){
-    const genreArr = useSelector((state) => state.reducer2);
+    const genreArr = useSelector((state:reducerType) => state.reducer2);
     const dispatch = useDispatch();
     
     const navMenu = [
@@ -24,11 +26,11 @@ function Nav(){
         },
     ]
 
-    const addGenre = (e) => {
+    const addGenre = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(selectGenre(e.target.id));
     }
 
-    const removeGenre = (e) => {
+    const removeGenre = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(unselectGenre(e.target.id));
     }
 
@@ -42,7 +44,7 @@ function Nav(){
                 {navMenu.map(e => <div key={e.code} className={styles.navMenu}><span><Link to={`/${e.code}`}>{e.name}</Link></span></div>)}
                 <div className={styles.category}>카테고리</div>
                 <div className={styles.categoryBtnBox}>
-                    {status === 'success' ? data.map((e) => {if(genreArr.indexOf(Number(e.id)) > -1){return(<div key={e.id}><span id={e.id} key={e.id} onClick={removeGenre} className={styles.seletedGenre}>{e.name}</span></div>)}else{return(<div key={e.id}><span id={e.id} key={e.id} onClick={addGenre} className={styles.genre}>{e.name}</span></div>)};}) : null}
+                    {status === 'success' ? data.map((e:any) => {if(genreArr.indexOf(Number(e.id)) > -1){return(<div key={e.id}><span id={e.id} key={e.id} onClick={()=>{removeGenre}} className={styles.seletedGenre}>{e.name}</span></div>)}else{return(<div key={e.id}><span id={e.id} key={e.id} onClick={()=>{addGenre}} className={styles.genre}>{e.name}</span></div>)};}) : null}
                 </div>
             </>
         )

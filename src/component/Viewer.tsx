@@ -7,21 +7,21 @@ import Loading2 from "./Loading2";
 import styles from "../style/Viewer.module.scss";
 
 function Viewer(){
-    const {id} = useParams();
+    const {id} = useParams() as {id:any};
     const {status, data} = useQuery([id],()=>fetchMovie(id),{
         staleTime: Infinity,
     })
 
     const dispatch = useDispatch();
 
-    const setrResetGenre = (e) => {
+    const setrResetGenre = (e:any) => {
         dispatch({
             type:'resetGenre',
         });
         dispatch(selectGenre(e.target.id));
     }
 
-    if(status === 'success'){
+    if(status === 'success' && data){
         return(
             <div className={styles.appMountPoint}>
                 <div>
@@ -41,7 +41,7 @@ function Viewer(){
                                                     </span>
                                                 </span>
                                                 <span className={styles.infoSpacer}> | </span>
-                                                {data.genres.map((e)=>{return(<Link onClick={setrResetGenre} to={`../`} className={styles.titleInfoMetadataItem2} key={e.id}><span id={e.id}>{e.name}</span></Link>)})}
+                                                {data.genres.map((e:any)=>{return(<Link onClick={setrResetGenre} to={`../`} className={styles.titleInfoMetadataItem2} key={e.id}><span id={e.id}>{e.name}</span></Link>)})}
                                             </div>
                                             <div className={styles.titleInfoSynopsisTalent}>
                                                 <div className={styles.titleInfoSynopsis}>{data.overview}</div>

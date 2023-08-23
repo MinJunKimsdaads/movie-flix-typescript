@@ -12,7 +12,7 @@ const genresList = async() => {
     }
 }
 
-const fetchList = async(menu,keyword,genre) => { //그 다음 리스트 출력
+const fetchList = async(menu:any,keyword:any,genre:number[]) => { //그 다음 리스트 출력
     try{
         const url = `https://api.themoviedb.org/3/movie/${menu ? menu:'now_playing'}?api_key=45c6a13c9f39865d3a3e9d48c9989352&language=ko-KR`;
         const response = await axios.get(url);
@@ -27,7 +27,7 @@ const fetchList = async(menu,keyword,genre) => { //그 다음 리스트 출력
         }
         if(genre.length > 0){  ///선택된 장르 확인
             totalResultArr = totalResultArr.filter((e)=>
-                e.genre_ids.some((x)=>genre.includes(x))
+                e.genre_ids.some((x:number)=>genre.includes(x))
             )
         }
         if(keyword){ ///검색한 키워드 확인
@@ -41,7 +41,7 @@ const fetchList = async(menu,keyword,genre) => { //그 다음 리스트 출력
     }
 }
 
-const fetchMovie = async(id) => {
+const fetchMovie = async(id:number) => {
     try{
         const url = `https://api.themoviedb.org/3/movie/${id}?api_key=45c6a13c9f39865d3a3e9d48c9989352&language=ko-KR`;
         const urlCredit = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=45c6a13c9f39865d3a3e9d48c9989352&language=ko-KR`;
@@ -65,14 +65,14 @@ const fetchMovie = async(id) => {
 ///fetch///
 
 ///genre///
-const selectGenre = (genre) => {
+const selectGenre = (genre:string) => {
     return {
         type: 'addGenre',
         genre: genre,
     }
 }
 
-const unselectGenre = (genre) => {
+const unselectGenre = (genre:string) => {
     return {
         type: 'deleteGenre',
         genre: genre,
@@ -87,7 +87,7 @@ const moveToFirst = () => {
     }
 }
 
-const moveToEnd = (result) => {
+const moveToEnd = (result:number) => {
     return {
         type:'end',
         result:result,
@@ -107,7 +107,7 @@ const moveToNext = () => {
     }
 }
 
-const moveToPage = (num) => {
+const moveToPage = (num:any) => {
     return{
         type:'num',
         result:num,
@@ -116,7 +116,7 @@ const moveToPage = (num) => {
 ///pagenation///
 
 ///keyword///
-const insertKeyword = (keyword) => {
+const insertKeyword = (keyword:any) => {
     return {
         type: 'addKeyword',
         keyword: keyword,
@@ -126,7 +126,7 @@ const insertKeyword = (keyword) => {
 
 ///리듀서///
 /// 페이지네이션 state ///
-const reducer = (state = 1, action) => {
+const reducer = (state = 1, action:any) => {
     switch(action.type){
         case 'prev':
             return state - 1;
@@ -144,7 +144,7 @@ const reducer = (state = 1, action) => {
 }
 
 ////// 장르 state //////
-const reducer2 = (state = [], action)=>{
+const reducer2 = (state :any[] = [], action:any)=>{
     switch(action.type){
         case 'addGenre':
             return [...state,Number(action.genre)];
@@ -158,7 +158,7 @@ const reducer2 = (state = [], action)=>{
 }
 
 ////// 키워드 state //////
-const reducerKeword = (state = '', action) => {
+const reducerKeword = (state = '', action:any) => {
     switch(action.type){
         case 'addKeyword':
             return action.keyword;
@@ -167,7 +167,7 @@ const reducerKeword = (state = '', action) => {
     }
 }
 
-const reducerLoading = (state = false, action) => {
+const reducerLoading = (state = false, action:any) => {
     switch(action.type){
         case 'openLoading':
             return false;
@@ -187,6 +187,8 @@ const reducers = combineReducers({
 
 const store = createStore(reducers);
 ///리듀서///
+
+export type reducerType = ReturnType<typeof reducers>; //
 
 
 export {store, fetchList, genresList, selectGenre, unselectGenre, moveToFirst, moveToEnd, moveToNext, moveToPrev, moveToPage, insertKeyword, fetchMovie};

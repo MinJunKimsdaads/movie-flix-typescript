@@ -10,7 +10,7 @@ import Loading2 from "./Loading2";
 import styles from "../style/List.module.scss";
 
 function List(){
-    const {menu} = useParams(); //메뉴
+    const {menu} = useParams() as {menu:any}; //메뉴
     const dispatch = useDispatch();
     const page = useSelector((state) => state.reducer); //페이지
     const selectedGenre = useSelector((state) => state.reducer2); //선택한 장르
@@ -38,7 +38,7 @@ function List(){
             <Loading></Loading>
         )
     }else{
-        if(status === 'success'){
+        if(status === 'success' && data){
             return(
                 <div>
                     <div className={styles.itemBox}>

@@ -6,7 +6,7 @@ import List from "../component/List";
 import styles from "../style/Template.module.scss";
 
 function ListPage(){
-    const {menu} = useParams();
+    const {menu} = useParams() as {menu:any};   //as 문법
 
     return(
         <div className={styles.templateBox}>
