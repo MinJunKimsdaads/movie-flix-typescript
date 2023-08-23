@@ -1,3 +1,6 @@
+import * as React from 'react';
+import { PureComponent } from 'react';
+
 import '.App.scss';
 import { Route } from 'react-router-dom';
 import ListPage from './page/ListPage';

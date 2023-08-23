@@ -10,8 +10,6 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.41",
     "@types/node-sass": "^4.11.3",
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
     "@types/react-query": "^1.2.9",
     "@types/react-redux": "^7.1.25",
     "@types/react-router-dom": "^5.3.3",
@@ -44,5 +42,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7"
   }
 }

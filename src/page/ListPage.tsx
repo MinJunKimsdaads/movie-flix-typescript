@@ -19,7 +19,7 @@ function ListPage(){
                 </div>
                 <div className={styles.itemBox}>
                     <Result></Result>
-                    <List menu={menu}></List>
+                    <List></List>
                 </div>
             </div>
         </div>
