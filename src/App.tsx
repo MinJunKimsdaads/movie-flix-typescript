@@ -1,8 +1,7 @@
-import * as React from 'react';
-import { PureComponent } from 'react';
+import React from 'react';
 
-import '.App.scss';
-import { Route } from 'react-router-dom';
+import './App.scss';
+import { Route, Routes } from 'react-router-dom';
 import ListPage from './page/ListPage';
 import Viewer from './component/Viewer';
 import { Provider } from 'react-redux';
@@ -12,8 +11,10 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-          <Route path={`/:menu?`} component={ListPage}></Route>
-          <Route path={`/viewer/:id?`} component={Viewer}></Route>
+        <Routes>
+          <Route path={`/:menu?`} element={<ListPage></ListPage>}></Route>
+          <Route path={`/viewer/:id?`} element={<Viewer></Viewer>}></Route>
+        </Routes>
       </div>
     </Provider>
   );

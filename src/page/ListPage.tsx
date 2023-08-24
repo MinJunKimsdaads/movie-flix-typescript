@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import Nav from "../component/Nav";
 import Search from "../component/Search";
 import Result from "../component/Result";
@@ -6,7 +6,7 @@ import List from "../component/List";
 import styles from "../style/Template.module.scss";
 
 function ListPage(){
-    const {menu} = useParams() as {menu:any};   //as 문법
+    // const {menu} = useParams() as {menu:any};   //as 문법
 
     return(
         <div className={styles.templateBox}>
