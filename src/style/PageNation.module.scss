@@ -19,10 +19,13 @@ $netflixGray: #ddd;
 .pageBtn {
     color: $netflixGray;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .selectedPageNumber {
     color: #737373;
     font-weight: bold;
+    pointer-events: none;
+    cursor: none;
 }
 

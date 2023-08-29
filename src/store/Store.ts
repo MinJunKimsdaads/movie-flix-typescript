@@ -17,7 +17,7 @@ const fetchList = async(menu:any,keyword:any,genre:number[]) => { //그 다음 �
         const url = `https://api.themoviedb.org/3/movie/${menu ? menu:'now_playing'}?api_key=45c6a13c9f39865d3a3e9d48c9989352&language=ko-KR`;
         const response = await axios.get(url);
         let totalPage = response.data.total_pages;
-        if(totalPage > 500){  // 최대 데이터 갯수 1000개로 제한
+        if(totalPage > 500){  // 최대 데이터 갯수 500개로 제한
             totalPage = 50;
         }
         let totalResultArr = [];

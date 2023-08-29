@@ -31,7 +31,7 @@ function List(){
                 dispatch({
                     type:'closeLoading',
                 });
-            },5000)
+            },7000)
         }
     },[globalLoading,dispatch]);
 

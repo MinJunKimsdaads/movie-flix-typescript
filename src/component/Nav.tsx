@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import { genresList } from "../store/Store";
 import { selectGenre, unselectGenre } from "../store/Store";
@@ -10,10 +10,10 @@ import { reducerType } from "../store/Store";
 interface Test {
     id:string,
     name:string,
-
 }
 
 function Nav(){
+    const {menu} = useParams() as {menu:any}; //메뉴
     const genreArr = useSelector((state:reducerType) => state.reducer2);
     const dispatch = useDispatch();
     
@@ -47,7 +47,7 @@ function Nav(){
     if(status === 'success' && data){
         return (
             <>
-                {navMenu.map(e => <div key={e.code} className={styles.navMenu}><span><Link to={`/${e.code}`}>{e.name}</Link></span></div>)}
+                {navMenu.map(e => <div key={e.code} className={menu === e.code ? styles.selectedNavMenu:styles.navMenu}><span><Link to={`/${e.code}`}>{e.name}</Link></span></div>)}
                 <div className={styles.category}>카테고리</div>
                 <div className={styles.categoryBtnBox}>
                     {data.map((e: Test) => {if(genreArr.indexOf(Number(e.id)) > -1){return(<div key={e.id}><span id={e.id} key={e.id} onClick={removeGenre} className={styles.seletedGenre}>{e.name}</span></div>)}else{return(<div key={e.id}><span id={e.id} key={e.id} onClick={addGenre} className={styles.genre}>{e.name}</span></div>)};})}'

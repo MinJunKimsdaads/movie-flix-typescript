@@ -9,6 +9,18 @@ $netflixGray: #ddd;
         color: white;
         font-weight: bold;
         font-size: 20px;
+        text-decoration: none;
+    }
+}
+
+.selectedNavMenu {
+    margin-top: 20px;
+    padding-left: 70px;
+
+    a {
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
     }
 }
 
