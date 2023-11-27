@@ -1,4 +1,4 @@
-$netflixBlack: #141414;
+// $netflixBlack: red;
 $netflixGray: #ddd;
 
 * {
@@ -7,5 +7,5 @@ $netflixGray: #ddd;
 }
 
 .App{
-  background-color: $netflixBlack;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(30,31,39,1) 20%, rgba(0,212,255,1) 100%);
 }
