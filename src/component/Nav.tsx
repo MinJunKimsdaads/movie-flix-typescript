@@ -19,15 +19,15 @@ function Nav(){
     
     const navMenu = [
         {
-            name:'현재 상영 중인 영화',
+            name:'Now Playing',
             code:'now_playing',
         },
         {
-            name:'개봉 예정 영화',
+            name:'Upcoming',
             code:'upcoming',
         },
         {
-            name:'인기 영화',
+            name:'Popular',
             code:'popular',
         },
     ]
@@ -48,7 +48,7 @@ function Nav(){
         return (
             <>
                 {navMenu.map(e => <div key={e.code} className={menu === e.code ? styles.selectedNavMenu:styles.navMenu}><span><Link to={`/${e.code}`}>{e.name}</Link></span></div>)}
-                <div className={styles.category}>카테고리</div>
+                <div className={styles.category}>Category</div>
                 <div className={styles.categoryBtnBox}>
                     {data.map((e: Test) => {if(genreArr.indexOf(Number(e.id)) > -1){return(<div key={e.id}><span id={e.id} key={e.id} onClick={removeGenre} className={styles.seletedGenre}>{e.name}</span></div>)}else{return(<div key={e.id}><span id={e.id} key={e.id} onClick={addGenre} className={styles.genre}>{e.name}</span></div>)};})}'
                 </div>
