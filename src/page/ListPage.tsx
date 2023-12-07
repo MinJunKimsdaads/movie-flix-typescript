@@ -10,8 +10,10 @@ function ListPage(){
 
     return(
         <div className={styles.templateBox}>
-            <div className={styles.navBox}>
-                <Nav></Nav>
+            <div className={styles.navWrap}>
+                <div className={styles.navBox}>
+                    <Nav></Nav>
+                </div>
             </div>
             <div className={styles.mainBox}>
                 <div className={styles.searchBox}>

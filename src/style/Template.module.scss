@@ -13,10 +13,14 @@ $netflixGray: #ddd;
     // border: 2px solid $netflixGray;
 }
 
-.navBox {
+.navWrap {
     width: 20%;
     height: 100%;
-    padding-top: 75px;
+    padding-top: 110px;
+}
+
+.navBox {
+    width: 80%;
 }
 
 .mainBox {
