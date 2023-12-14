@@ -2,38 +2,25 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { insertKeyword } from "../store/Store";
 import styles from "../style/Search.module.scss";
-
-import {DialogContext} from "./Dialog";
-import {useContext} from "react";
+import { useParams,Link } from "react-router-dom";
 
 function Search(){
-    const dialog = useContext(DialogContext);
 
-    const object ={
-        title: "testTitle",
-        des: "testDes",
-        // styles: {
-        //     dialogShadow:'',
-        //     dialogColor:'',
-        //     dialogWhith:'',
-        //     dialogHeight:'',
-        //     dialogRadius:'',
-        //     dialogTitleFont:'',
-        //     dialogTitleColor:'',
-        //     dialogDesFont:'',
-        // },
-        // btn:{
-        //     btn1:{
-        //         name:'테스트',
-        //         action:testFn
-        //     },
-        //     btn2:{
-        //         name:'테스트2',
-        //         action:testFn
-        //     },
-        // }
+    const translate = (name:string) => {
+        switch(name){
+            case 'now_playing':
+                return 'Now Playing';
+                break;
+            case 'upcoming':
+                return 'Upcoming';
+                break;
+            case 'popular':
+                return 'Popular';
+                break;
+        }
     }
-    
+
+    const {menu} = useParams() as {menu:any}; //메뉴
     
     const dispatch = useDispatch();
     const [keyword, setinKeyword] = useState('');
@@ -52,9 +39,14 @@ function Search(){
     }
 
     return (
-        <div className={styles.searchBox}>
-            <input value={keyword} onChange={onChange} onKeyPress={onKeyPress}></input>
-            <span onClick={()=>{dialog.createDialogOption(object)}}>검색</span>
+        <div className={styles.searchWrap}>
+            <span className={styles.menu}>
+                {menu ? translate(menu):'Now Playing'}
+            </span>
+            <div className={styles.searchBox}>
+                <input value={keyword} onChange={onChange} onKeyPress={onKeyPress}></input>
+                <span onClick={insert}>Search</span>
+            </div>
         </div>
     )
 }

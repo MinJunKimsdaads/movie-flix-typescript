@@ -16,24 +16,21 @@ import {Dialog, DialogProvider}  from "./component/Dialog";
 
 
 function App() {
-  // const globalLoading = useSelector((state:reducerType) => state.reducer4); //로딩
-  // const dispatch = useDispatch();
-  // useEffect(()=>{
-  //     if(globalLoading === false){
-  //         setTimeout(()=>{
-  //             dispatch({
-  //                 type:'closeLoading',
-  //             });
-  //         },7000)
-  //     }
-  // },[globalLoading,dispatch]);
+  const [loading, setLoading] = useState(false);
+  useEffect(()=>{
+      if(!loading){
+          setTimeout(()=>{
+              setLoading(true);
+          },7000)
+      }
+  },[loading]);
 
   return (
     <DialogProvider>
         <Provider store={store}>
         <div className="App">
           <Routes>
-            <Route path={`/:menu?`} element={<ListPage></ListPage>}></Route>
+            <Route path={`/:menu?`} element={loading ? <ListPage></ListPage> : <Loading></Loading>}></Route>
             <Route path={`/viewer/:id?`} element={<Viewer></Viewer>}></Route>
           </Routes>
           <Dialog></Dialog>
