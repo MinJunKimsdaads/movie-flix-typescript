@@ -31,12 +31,12 @@
 <h4>6) 검색 기능</h4>
 <div>키워드 입력 후 해당 키워드가 포함된 제목 or 오버뷰가 있는 영화 배열을 출력</div>
 
-<img src="http://aaeexx.dothome.co.kr/project/image/movie-flix/1.gif)">
-<img src="http://aaeexx.dothome.co.kr/project/image/movie-flix/2.gif)">
-<img src="http://aaeexx.dothome.co.kr/project/image/movie-flix/3.gif)">
-<img src="http://aaeexx.dothome.co.kr/project/image/movie-flix/4.gif)">
-<img src="http://aaeexx.dothome.co.kr/project/image/movie-flix/5.gif)">
-<img src="http://aaeexx.dothome.co.kr/project/image/movie-flix/6.gif)">
+<img src="http://aaeexx.dothome.co.kr/project/image/movie-flix/1.gif">
+<img src="http://aaeexx.dothome.co.kr/project/image/movie-flix/2.gif">
+<img src="http://aaeexx.dothome.co.kr/project/image/movie-flix/3.gif">
+<img src="http://aaeexx.dothome.co.kr/project/image/movie-flix/4.gif">
+<img src="http://aaeexx.dothome.co.kr/project/image/movie-flix/5.gif">
+<img src="http://aaeexx.dothome.co.kr/project/image/movie-flix/6.gif">
 
 <a href="http://aaeexx.dothome.co.kr/project/image/movie-flix/">Demo</a>
 
