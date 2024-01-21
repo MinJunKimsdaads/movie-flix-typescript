@@ -1,4 +1,4 @@
-$netflixBlack: #141414;
+$netflixBlack: yellow;
 $netflixGray: #ddd;
 
 * {
@@ -8,15 +8,9 @@ $netflixGray: #ddd;
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $netflixBlack;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  height: 100vh;
+  background: black;
 }

@@ -29,15 +29,15 @@ function List(){
         if(globalLoading === false){
             setTimeout(()=>{
                 dispatch({
-                    type:'closeLoading',
+                    type:'CLOSE_LOADING',
                 });
-            },7000)
+            },1000)
         }
     },[globalLoading,dispatch]);
 
     if(globalLoading === false){
         return(
-            <Loading></Loading>
+            <div></div>
         )
     }else{
         if(status === 'success' && data){
@@ -52,7 +52,7 @@ function List(){
         }else{
             return(
                 <div>
-                    <Loading2></Loading2>
+                    {/* <Loading2></Loading2> */}
                 </div>
             )
         }

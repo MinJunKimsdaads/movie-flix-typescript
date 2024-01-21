@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PureComponent } from 'react';
+// import { PureComponent } from 'react';
 
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -15,7 +15,7 @@ const queryClient = new QueryClient();
 
 root.render(
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <App></App>
       </BrowserRouter>
     </QueryClientProvider>

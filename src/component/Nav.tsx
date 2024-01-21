@@ -19,15 +19,15 @@ function Nav(){
     
     const navMenu = [
         {
-            name:'현재 상영 중인 영화',
+            name:'Now Playing',
             code:'now_playing',
         },
         {
-            name:'개봉 예정 영화',
+            name:'Upcoming',
             code:'upcoming',
         },
         {
-            name:'인기 영화',
+            name:'Popular',
             code:'popular',
         },
     ]
@@ -44,13 +44,75 @@ function Nav(){
         staleTime: Infinity,
     });
 
+    const translate = (name:string) => {
+        switch(name){
+            case '액션':
+                return 'Action';
+                break;
+            case '모험':
+                return 'Adventure';
+                break;
+            case '애니메이션':
+                return 'Animation';
+                break;
+            case '코미디':
+                return 'Comedy';
+                break;
+            case '범죄':
+                return 'Crime';
+                break;
+            case '다큐멘터리':
+                return 'Documentary';
+                break;
+            case '드라마':
+                return 'Drama';
+                break;
+            case '가족':
+                return 'Family';
+                break;
+            case '판타지':
+                return 'Fantasy';
+                break;
+            case '역사':
+                return 'History';
+                break;
+            case '공포':
+                return 'Horror';
+                break;
+            case '음악':
+                return 'Music';
+                break;
+            case '미스터리':
+                return 'Mystery';
+                break;
+            case '로맨스':
+                return 'Romance';
+                break;
+            case 'SF':
+                return 'SF';
+                break;
+            case 'TV 영화':
+                return 'TV Movie';
+                break;
+            case '스릴러':
+                return 'Thriller';
+                break;
+            case '전쟁':
+                return 'War';
+                break;
+            case '서부':
+                return 'Western';
+                break;
+        }
+    }
+
     if(status === 'success' && data){
         return (
             <>
                 {navMenu.map(e => <div key={e.code} className={menu === e.code ? styles.selectedNavMenu:styles.navMenu}><span><Link to={`/${e.code}`}>{e.name}</Link></span></div>)}
-                <div className={styles.category}>카테고리</div>
+                <div className={styles.category}></div>
                 <div className={styles.categoryBtnBox}>
-                    {data.map((e: Test) => {if(genreArr.indexOf(Number(e.id)) > -1){return(<div key={e.id}><span id={e.id} key={e.id} onClick={removeGenre} className={styles.seletedGenre}>{e.name}</span></div>)}else{return(<div key={e.id}><span id={e.id} key={e.id} onClick={addGenre} className={styles.genre}>{e.name}</span></div>)};})}'
+                    {data.map((e: Test) => {if(genreArr.indexOf(Number(e.id)) > -1){return(<div key={e.id}><span id={e.id} key={e.id} onClick={removeGenre} className={styles.seletedGenre}>{translate(e.name)}</span></div>)}else{return(<div key={e.id}><span id={e.id} key={e.id} onClick={addGenre} className={styles.genre}>{translate(e.name)}</span></div>)};})}
                 </div>
             </>
         )

@@ -1,0 +1,14 @@
+.active-box{
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.36, 0.55, 0.19, 1);
+    transition-property: all, margin;
+    animation: horizontal-shaking 0.5s infinite;
+}
+
+@keyframes horizontal-shaking {
+    0% { left:50% }
+    25% { left:calc(50% + 5px) }
+    50% { left:calc(50% - 5px) }
+    75% { left:calc(50% + 5px) }
+    100% { left:50% }
+}

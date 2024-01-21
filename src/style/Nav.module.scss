@@ -2,10 +2,14 @@ $netflixBlack: #141414;
 $netflixGray: #ddd;
 
 .navMenu {
-    margin-top: 20px;
-    padding-left: 70px;
+    height: 50px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
 
     a {
+        display: flex;
+        align-items: center;
         color: white;
         font-weight: bold;
         font-size: 20px;
@@ -14,35 +18,41 @@ $netflixGray: #ddd;
 }
 
 .selectedNavMenu {
-    margin-top: 20px;
-    padding-left: 70px;
+    height: 50px;
+    padding-left: 20px;
+    background-color: rgba(128,128,128,0.3);
+    display: flex;
+    align-items: center;
 
     a {
+        display: inline-flex;
+        align-items: center;
         color: white;
         font-weight: bold;
         font-size: 20px;
+        text-decoration: none;
     }
+
 }
 
 .category {
-    font-size: 20px;
-    color: rgba(255,255,255,0.7);
-    margin-top: 60px;
-    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    height: 1px;
 }
 
 .categoryBtnBox {
     display: flex;
     flex-wrap: wrap;
-    padding-top: 10px;
 }
 
 .categoryBtnBox {
     > div{
         display: flex;
         margin-top: 15px;
-        min-width: 30%;
-        padding-left: 50px;
+        padding-left: 20px;
     }
 }
 
@@ -55,5 +65,5 @@ $netflixGray: #ddd;
 
 .genre {
     cursor: pointer;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.5);
 }

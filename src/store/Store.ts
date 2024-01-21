@@ -1,10 +1,24 @@
 import { createStore, combineReducers } from "redux";
 import axios from "axios";
 
+//action type// 상수로 정리
+const PREV = 'PREV';
+const NEXT = 'NEXT';
+const FIRST = 'FIRST';
+const END = 'END';
+const NUM = 'NUM';
+const ADD_GENRE = 'ADD_GENRE';
+const DELETE_GENRE = 'DELETE_GENRE';
+const RESET_GENRE = 'RESET_GENRE';
+const ADD_KEYWORD = 'ADD_KEYWORD';
+const OPEN_LOADING = 'OPEN_LOADING';
+const CLOSE_LOADING = 'CLOSE_LOADING';
+
 ///fetch///
 const genresList = async() => {
     try{
-        const response = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=45c6a13c9f39865d3a3e9d48c9989352&language=ko-KR`);
+        console.log(process.env.REACT_APP_TMDB)
+        const response = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_TMDB}&language=ko-KR`);
         const data = response.data.genres;
         return data;
     }catch(e){
@@ -14,12 +28,14 @@ const genresList = async() => {
 
 const fetchList = async(menu:any,keyword:any,genre:number[]) => { //그 다음 리스트 출력
     try{
-        const url = `https://api.themoviedb.org/3/movie/${menu ? menu:'now_playing'}?api_key=45c6a13c9f39865d3a3e9d48c9989352&language=ko-KR`;
+        const url = `https://api.themoviedb.org/3/movie/${menu ? menu:'now_playing'}?api_key=${process.env.REACT_APP_TMDB}&language=ko-KR`;
         const response = await axios.get(url);
         let totalPage = response.data.total_pages;
-        if(totalPage > 500){  // 최대 데이터 갯수 500개로 제한
-            totalPage = 50;
-        }
+        // if(totalPage > 500){  // 최대 데이터 갯수 500개로 제한
+        //     totalPage = 50;
+        // }
+
+        totalPage = 15; //속도 문제로 데이터 갯수 제한
         let totalResultArr = [];
         for(let i=1;i<=totalPage;i++){ //각 페이지별로 하나의 배열에 나열
             let newResponse = await axios.get(url+`&page=${i}`,);
@@ -43,8 +59,8 @@ const fetchList = async(menu:any,keyword:any,genre:number[]) => { //그 다음 �
 
 const fetchMovie = async(id:number) => {
     try{
-        const url = `https://api.themoviedb.org/3/movie/${id}?api_key=45c6a13c9f39865d3a3e9d48c9989352&language=ko-KR`;
-        const urlCredit = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=45c6a13c9f39865d3a3e9d48c9989352&language=ko-KR`;
+        const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB}&language=ko-KR`;
+        const urlCredit = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB}&language=ko-KR`;
         const response = await axios.get(url);
         const responseCredit = await axios.get(urlCredit);
         const movieData = {
@@ -59,7 +75,7 @@ const fetchMovie = async(id:number) => {
         }
         return movieData;
     }catch(e){
-
+        console.log(e);
     }
 }
 ///fetch///
@@ -67,14 +83,14 @@ const fetchMovie = async(id:number) => {
 ///genre///
 const selectGenre = (genre:string) => {
     return {
-        type: 'addGenre',
+        type: ADD_GENRE,
         genre: genre,
     }
 }
 
 const unselectGenre = (genre:string) => {
     return {
-        type: 'deleteGenre',
+        type: DELETE_GENRE,
         genre: genre,
     }
 }
@@ -83,33 +99,33 @@ const unselectGenre = (genre:string) => {
 ///pagenation///
 const moveToFirst = () => {
     return {
-        type:'first',
+        type:FIRST,
     }
 }
 
 const moveToEnd = (result:number) => {
     return {
-        type:'end',
+        type:END,
         result:result,
     }
 }
 
 const moveToPrev = () => {
     return {
-        type:'prev',
+        type:PREV,
     }
 }
 
 const moveToNext = () => {
     return {
-        type:'next',
+        type:NEXT,
         
     }
 }
 
 const moveToPage = (num:any) => {
     return{
-        type:'num',
+        type:NUM,
         result:num,
     }
 }
@@ -118,7 +134,7 @@ const moveToPage = (num:any) => {
 ///keyword///
 const insertKeyword = (keyword:any) => {
     return {
-        type: 'addKeyword',
+        type: ADD_KEYWORD,
         keyword: keyword,
     }
 }
@@ -128,15 +144,15 @@ const insertKeyword = (keyword:any) => {
 /// 페이지네이션 state ///
 const reducer = (state = 1, action:any) => {
     switch(action.type){
-        case 'prev':
+        case 'PREV':
             return state - 1;
-        case 'next':
+        case 'NEXT':
             return state + 1;
-        case 'first':
+        case 'FIRST':
             return 1;
-        case 'end':
+        case 'END':
             return action.result;
-        case 'num':
+        case 'NUM':
             return action.result;
         default:
             return state;
@@ -146,11 +162,11 @@ const reducer = (state = 1, action:any) => {
 ////// 장르 state //////
 const reducer2 = (state :any[] = [], action:any)=>{
     switch(action.type){
-        case 'addGenre':
+        case 'ADD_GENRE':
             return [...state,Number(action.genre)];
-        case 'deleteGenre':
+        case 'DELETE_GENRE':
             return state.filter(e => e !== Number(action.genre));
-        case 'resetGenre':
+        case 'RESET_GENRE':
             return [];
         default:
             return state;
@@ -160,7 +176,7 @@ const reducer2 = (state :any[] = [], action:any)=>{
 ////// 키워드 state //////
 const reducerKeword = (state = '', action:any) => {
     switch(action.type){
-        case 'addKeyword':
+        case 'ADD_KEYWORD':
             return action.keyword;
         default:
             return state;
@@ -169,9 +185,9 @@ const reducerKeword = (state = '', action:any) => {
 
 const reducerLoading = (state = false, action:any) => {
     switch(action.type){
-        case 'openLoading':
+        case 'OPEN_LOADING':
             return false;
-        case 'closeLoading':
+        case 'CLOSE_LOADING':
             return true;
         default:
             return state;

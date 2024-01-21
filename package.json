@@ -2,6 +2,7 @@
   "name": "client-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://aaeexx.dothome.co.kr/project/image/movie-flix",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -48,6 +49,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7"
+    "@types/react-dom": "^18.2.7",
+    "sass": "^1.69.7"
   }
 }

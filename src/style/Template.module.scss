@@ -1,10 +1,8 @@
-$netflixBlack: #141414;
 $netflixGray: #ddd;
 
 .templateBox {
     width: 1500px;
     height: 800px;
-    background-color: $netflixBlack;
     border-radius: 20px;
     position: absolute;
     top: 50%;
@@ -12,13 +10,17 @@ $netflixGray: #ddd;
     transform: translate(-50%, -50%);
     display: flex;
     flex-wrap: wrap;
-    border: 2px solid $netflixGray;
+    // border: 2px solid $netflixGray;
+}
+
+.navWrap {
+    width: 20%;
+    height: 100%;
+    padding-top: 110px;
 }
 
 .navBox {
-    width: 20%;
-    height: 100%;
-    padding-top: 75px;
+    width: 80%;
 }
 
 .mainBox {

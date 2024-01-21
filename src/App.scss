@@ -1,4 +1,4 @@
-$netflixBlack: #141414;
+// $netflixBlack: red;
 $netflixGray: #ddd;
 
 * {
@@ -7,5 +7,5 @@ $netflixGray: #ddd;
 }
 
 .App{
-  background-color: $netflixBlack;
+  background: black;
 }

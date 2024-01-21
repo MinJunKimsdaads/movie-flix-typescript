@@ -16,7 +16,7 @@ function Viewer(){
 
     const setrResetGenre = (e:any) => {
         dispatch({
-            type:'resetGenre',
+            type:'RESET_GENRE',
         });
         dispatch(selectGenre(e.target.id));
     }
